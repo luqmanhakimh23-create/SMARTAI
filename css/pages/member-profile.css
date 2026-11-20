@@ -1,0 +1,29 @@
+.avatar-edit{
+  display:flex;align-items:center;gap:1.25rem;margin-bottom:1.75rem;flex-wrap:wrap;
+  padding:1.1rem 1.2rem;border:1px solid var(--border);border-radius:16px;background:var(--input-bg)
+}
+.avatar-preview{
+  width:96px;height:96px;border-radius:50%;
+  background:linear-gradient(135deg,var(--cyan),var(--teal));
+  display:flex;align-items:center;justify-content:center;
+  font-weight:800;font-size:1.6rem;color:#1c1300;
+  background-size:cover;background-position:center;
+  border:3px solid rgba(59,139,255,.4);
+  box-shadow:0 8px 24px var(--glow);flex-shrink:0;overflow:hidden
+}
+.avatar-actions{display:flex;flex-direction:column;gap:.55rem;min-width:180px}
+.avatar-actions .hint{font-size:.75rem;color:var(--text-dim);max-width:260px;line-height:1.4}
+.btn-file{
+  display:inline-flex;align-items:center;justify-content:center;gap:.45rem;
+  background:linear-gradient(135deg,var(--cyan),var(--teal));color:#1c1300;
+  padding:.65rem 1.15rem;border-radius:999px;font-size:.85rem;font-weight:700;
+  cursor:pointer;font-family:inherit;width:fit-content;border:none;
+  box-shadow:0 6px 18px var(--glow)
+}
+.btn-file:hover{filter:brightness(1.05)}
+.btn-file input{display:none}
+.btn-remove{
+  background:transparent;border:1px solid var(--border);color:var(--text-muted);
+  font-size:.8rem;cursor:pointer;font-family:inherit;padding:.4rem .85rem;border-radius:999px;width:fit-content
+}
+.btn-remove:hover{color:var(--red);border-color:var(--red)}

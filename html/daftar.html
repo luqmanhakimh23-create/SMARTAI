@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Sign Up — Smart AI</title>
+  <meta name="description" content="Daftar akun member Smart AI. Mulai trading dengan EA otomatis, pantau performa, dan raih komisi referral."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="index.html"/>
+  <meta name="theme-color" content="#050a12"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/pages/site-daftar.css">
+</head>
+<body>
+  <button type="button" class="theme-btn" id="theme-toggle" aria-label="Tema">◐</button>
+  <div class="auth-shell">
+    <a href="index.html" class="back-link">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Kembali ke Beranda
+    </a>
+    <a href="index.html" class="logo" aria-label="Smart AI"><img src="../img/logo-round.png" alt="" class="logo-round" width="48" height="48"><strong class="logo-text">SMART<span>AI</span></strong></a>
+    <div class="card">
+      <h1>Sign Up</h1>
+      <p class="sub">Buat akun member Smart AI</p>
+      <form id="signup-form" novalidate>
+        <div class="form-group">
+          <label for="nama">Nama Lengkap</label>
+          <input type="text" id="nama" name="nama" placeholder="Nama Anda" required autocomplete="name"/>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="email@contoh.com" required autocomplete="email"/>
+        </div>
+        <div class="form-group">
+          <label for="hp">No. WhatsApp</label>
+          <input type="tel" id="hp" name="hp" placeholder="08xxxxxxxxxx" required autocomplete="tel"/>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Minimal 6 karakter" required autocomplete="new-password"/>
+        </div>
+        <div class="form-group">
+          <label for="password2">Ulangi Password</label>
+          <input type="password" id="password2" name="password2" placeholder="Ulangi password" required autocomplete="new-password"/>
+        </div>
+        <div class="form-group">
+          <label for="ref">Kode Referral (opsional)</label>
+          <input type="text" id="ref" name="ref" placeholder="SMARTAI-REF" autocomplete="off"/>
+        </div>
+        <button type="submit" class="btn-primary" id="btn-submit">Daftar Sekarang</button>
+      </form>
+      <div id="msg" class="msg"></div>
+      <p class="foot">Sudah punya akun? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+  <script src="../js/auth.js"></script>
+<script src="../js/pages/site-daftar.js"></script>
+<script src="../js/pages/site-daftar-2.js"></script>
+</body>
+</html>

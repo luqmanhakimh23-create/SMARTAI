@@ -1,0 +1,56 @@
+      .testi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
+      .testi-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.4rem 1.3rem;
+        transition: transform .25s, box-shadow .25s, border-color .25s;
+      }
+      .testi-card:hover { transform: translateY(-4px); border-color: var(--border-strong); box-shadow: var(--shadow); }
+      .testi-stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: .7rem; }
+      .testi-card p { font-size: .95rem; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem; }
+      .testi-avatar {
+        display: inline-flex; align-items: center; justify-content: center;
+        width: 32px; height: 32px; border-radius: 50%;
+        background: linear-gradient(135deg, var(--cyan), var(--teal));
+        color: #fff; font-size: .75rem; font-weight: 800; margin-right: .5rem;
+      }
+      .testi-meta { font-size: .85rem; color: var(--text); font-weight: 600; display: flex; align-items: center; }
+      .comment-section {
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: 1.75rem;
+        margin-top: 1rem;
+      }
+      .comment-section h3 { font-size: 1.15rem; font-weight: 800; margin-bottom: .4rem; }
+      .comment-section .sub { font-size: .88rem; color: var(--text-muted); margin-bottom: 1.25rem; }
+      .rating-input { display: flex; gap: .35rem; margin-bottom: 1rem; font-size: 1.6rem; cursor: pointer; }
+      .rating-input span { color: var(--text-dim); transition: color .15s, transform .15s; }
+      .rating-input span:hover, .rating-input span.active { color: var(--gold); transform: scale(1.15); }
+      .comment-section textarea {
+        width: 100%; min-height: 110px; padding: .9rem 1rem;
+        background: var(--input-bg); border: 1px solid var(--input-border);
+        border-radius: 12px; color: var(--text); font-family: inherit; font-size: .95rem;
+        resize: vertical; margin-bottom: 1rem;
+      }
+      .comment-section textarea:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(59,139,255,.15); }
+      .comment-section .btn-submit { min-width: 160px; }
+      .login-prompt {
+        text-align: center; padding: 1.5rem;
+        background: rgba(59,139,255,.06); border: 1px dashed rgba(59,139,255,.25);
+        border-radius: 14px; margin-top: 1rem;
+      }
+      .login-prompt p { color: var(--text-muted); margin-bottom: .9rem; }
+      .pending-badge {
+        display: inline-block; font-size: .68rem; font-weight: 700;
+        padding: .2rem .55rem; border-radius: 999px;
+        background: rgba(251,191,36,.12); color: var(--gold);
+        border: 1px solid rgba(251,191,36,.3); margin-left: .5rem;
+      }
+      .empty-state { text-align: center; padding: 2rem; color: var(--text-muted); font-size: .95rem; }
+      .avg-rating { display: flex; align-items: center; gap: .75rem; margin-bottom: 1.5rem; }
+      .avg-rating .score { font-size: 2rem; font-weight: 800; color: var(--cyan); }
+      .avg-rating .stars { color: var(--gold); font-size: 1.1rem; letter-spacing: 2px; }
+      .avg-rating .count { font-size: .85rem; color: var(--text-muted); }
+    

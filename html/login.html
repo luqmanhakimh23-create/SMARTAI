@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"/>
+  <title>Login — Smart AI</title>
+  <meta name="description" content="Login ke dashboard member Smart AI. Pantau performa EA trading, equity, referral, dan komisi secara real-time."/>
+  <meta name="robots" content="index, follow"/>
+  <link rel="canonical" href="index.html"/>
+  <meta name="theme-color" content="#050a12"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/pages/site-login.css">
+</head>
+<body>
+  <button type="button" class="theme-btn" id="theme-toggle" aria-label="Tema" title="Ganti tema">◐</button>
+  <div class="auth-shell">
+    <a href="index.html" class="back-link">
+      <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+      Kembali ke Beranda
+    </a>
+    <a href="index.html" class="logo" aria-label="Smart AI"><img src="../img/logo-round.png" alt="" class="logo-round" width="48" height="48"><strong class="logo-text">SMART<span>AI</span></strong></a>
+    <div class="card">
+      <h1>Login</h1>
+      <p class="sub">Masuk ke dashboard member</p>
+      <div class="demo-box">
+        <div class="row">
+          <span class="demo-badge">DEMO</span>
+          <span>Akses dashboard tanpa daftar</span>
+          <button type="button" class="btn-demo" id="btn-demo">Isi akun demo</button>
+        </div>
+        <div class="creds">demo@smartai.id &nbsp;/&nbsp; demo123</div>
+      </div>
+      <form id="login-form" novalidate>
+        <div class="form-group">
+          <label for="email">Email / Username</label>
+          <input type="text" id="email" name="email" placeholder="demo@smartai.id" autocomplete="username" required/>
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="••••••••" autocomplete="current-password" required/>
+        </div>
+        <button type="submit" class="btn-primary" id="btn-submit">Masuk ke Dashboard</button>
+      </form>
+      <div id="msg" class="msg"></div>
+      <p class="foot">Belum punya akun? <a href="daftar.html">Sign Up</a></p>
+    </div>
+  </div>
+  <script src="../js/auth.js"></script>
+<script src="../js/pages/site-login.js"></script>
+<script src="../js/pages/site-login-2.js"></script>
+</body>
+</html>

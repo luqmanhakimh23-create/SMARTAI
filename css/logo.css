@@ -1,0 +1,4 @@
+.logo { display: inline-flex; align-items: center; gap: 0.4rem; text-decoration: none; }
+.logo-img { height: 42px; width: auto; display: block; object-fit: contain; }
+footer .logo-img { height: 36px; }
+.sidebar-brand .logo-img { height: 34px; }

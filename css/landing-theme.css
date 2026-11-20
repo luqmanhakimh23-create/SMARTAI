@@ -1,0 +1,444 @@
+/* ==========================================================
+   SMART AI — Landing Theme (Admin Panel + Member Portal)
+   Dimuat TERAKHIR agar menimpa admin.css / app.css.
+   Sumber desain: css/site.css (landing page).
+   ========================================================== */
+
+/* ---------- 1. Design tokens (sama dengan landing) ---------- */
+:root,
+[data-theme=dark] {
+  --bg: #050a16;
+  --bg-elevated: #09132a;
+  --bg-card: #0c1730;
+  --bg-card-solid: #0c1730;
+  --bg-input: rgba(255,255,255,.03);
+  --input-bg: rgba(255,255,255,.03);
+  --input-border: rgba(255,255,255,.09);
+  --bg-hover: rgba(110,165,255,.07);
+  --bg-subtle: rgba(110,165,255,.03);
+  --surface-2: rgba(110,165,255,.035);
+  --border: rgba(110,165,255,.16);
+  --border-strong: rgba(110,165,255,.30);
+  --cyan: #3b8bff;
+  --blue: #3b8bff;
+  --teal: #1d5fe0;
+  --green: #34d399;
+  --red: #f87171;
+  --yellow: #f5b942;
+  --gold: #f5b942;
+  --purple: #a78bfa;
+  --text: #f1f5f9;
+  --text-muted: #9fb0cc;
+  --text-dim: #6b7fa3;
+  --nav-bg: rgba(5,10,22,.85);
+  --topbar-bg: rgba(5,10,22,.85);
+  --sidebar-active: rgba(59,139,255,.12);
+  --glow: rgba(59,139,255,.22);
+  --radius: 16px;
+  --radius-sm: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 25px 50px -12px rgba(0,0,0,.55);
+  --shadow-sm: 0 10px 28px -10px rgba(0,0,0,.45);
+  --shadow-lg: 0 25px 50px -12px rgba(0,0,0,.6);
+  --gold-grad: linear-gradient(135deg, #ffd166 0%, #f5b942 55%, #d99a1c 100%);
+}
+
+[data-theme=light] {
+  --bg: #f4f7fd;
+  --bg-elevated: #ffffff;
+  --bg-card: #ffffff;
+  --bg-card-solid: #ffffff;
+  --bg-input: rgba(15,23,42,.03);
+  --input-bg: rgba(15,23,42,.03);
+  --input-border: rgba(15,23,42,.10);
+  --bg-hover: rgba(29,95,224,.06);
+  --bg-subtle: rgba(29,95,224,.03);
+  --surface-2: rgba(29,95,224,.03);
+  --border: rgba(29,78,216,.13);
+  --border-strong: rgba(29,78,216,.26);
+  --cyan: #1d5fe0;
+  --blue: #1d5fe0;
+  --teal: #1747b8;
+  --green: #059669;
+  --red: #dc2626;
+  --yellow: #b7791f;
+  --gold: #c98a0b;
+  --purple: #7c3aed;
+  --text: #0f172a;
+  --text-muted: #475569;
+  --text-dim: #94a3b8;
+  --nav-bg: rgba(244,247,253,.92);
+  --topbar-bg: rgba(244,247,253,.92);
+  --sidebar-active: rgba(29,95,224,.09);
+  --glow: rgba(29,95,224,.16);
+  --shadow: 0 8px 24px rgba(15,23,42,.07);
+  --shadow-sm: 0 6px 18px rgba(15,23,42,.06);
+  --shadow-lg: 0 18px 40px rgba(15,23,42,.12);
+}
+
+/* ---------- 2. Base ---------- */
+html[data-theme] body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(ellipse 60% 40% at 85% -5%, rgba(59,139,255,.14), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 0% 100%, rgba(245,185,66,.06), transparent 60%);
+  background-attachment: fixed;
+  color: var(--text);
+}
+[data-theme=light] body {
+  background-image:
+    radial-gradient(ellipse 60% 40% at 85% -5%, rgba(29,95,224,.08), transparent 60%),
+    radial-gradient(ellipse 50% 35% at 0% 100%, rgba(245,185,66,.07), transparent 60%);
+}
+html[data-theme] .main-wrap,
+html[data-theme] .main,
+html[data-theme] .content { background: transparent; }
+::selection { background: rgba(59,139,255,.28); color: var(--text); }
+:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+html[data-theme] a:not(.btn):not(.nav-item) { text-decoration: none; }
+
+/* scrollbar tipis */
+* { scrollbar-width: thin; scrollbar-color: rgba(110,165,255,.28) transparent; }
+*::-webkit-scrollbar { width: 8px; height: 8px; }
+*::-webkit-scrollbar-thumb { background: rgba(110,165,255,.25); border-radius: 8px; }
+
+/* ---------- 3. Sidebar ---------- */
+html[data-theme] .sidebar {
+  background: var(--bg-elevated);
+  border-right: 1px solid var(--border);
+}
+html[data-theme] .sidebar-brand {
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(59,139,255,.07), transparent);
+}
+html[data-theme] .sidebar-brand strong,
+html[data-theme] .sidebar-brand .brand-text {
+  font-weight: 800; letter-spacing: -.02em;
+}
+html[data-theme] .sidebar-brand strong span,
+html[data-theme] .sidebar-brand .brand-text span,
+html[data-theme] .auth-brand-logo span {
+  background: linear-gradient(135deg, var(--cyan), #8cb8ff);
+  -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+html[data-theme] .sidebar-brand small {
+  color: var(--gold); letter-spacing: .14em;
+}
+/* logo bulat dengan ring emas — sama dengan landing */
+html[data-theme] .brand-logo,
+html[data-theme] .logo-round,
+html[data-theme] .admin-chip .av.av-logo {
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #f5b942, 0 0 12px rgba(245,185,66,.35), 0 2px 10px rgba(0,0,0,.25);
+}
+
+html[data-theme] .nav-section {
+  color: var(--text-dim); letter-spacing: .14em; font-weight: 700;
+}
+html[data-theme] .nav-item {
+  border-radius: 12px; color: var(--text-muted); font-weight: 500;
+}
+html[data-theme] .nav-item:hover {
+  background: var(--bg-hover); color: var(--text);
+}
+html[data-theme] .nav-item.active {
+  background: var(--sidebar-active);
+  color: var(--cyan); font-weight: 600;
+  box-shadow: inset 0 0 0 1px rgba(59,139,255,.22);
+}
+html[data-theme] .nav-item.active::before {
+  background: linear-gradient(180deg, #ffd166, #f5b942);
+}
+html[data-theme] .nav-badge {
+  background: var(--gold-grad); color: #1c1300; font-weight: 700;
+}
+html[data-theme] .sidebar-foot { border-top: 1px solid var(--border); }
+html[data-theme] .admin-chip,
+html[data-theme] .user-chip,
+html[data-theme] .user-mini {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: 14px;
+}
+
+/* ---------- 4. Topbar ---------- */
+html[data-theme] .topbar {
+  background: var(--topbar-bg);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+}
+html[data-theme] .topbar-title,
+html[data-theme] .page-title { font-weight: 700; letter-spacing: -.01em; }
+html[data-theme] .icon-btn,
+html[data-theme] .theme-btn,
+html[data-theme] .menu-toggle {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  border-radius: 50%;
+}
+html[data-theme] .icon-btn:hover,
+html[data-theme] .theme-btn:hover,
+html[data-theme] .menu-toggle:hover {
+  color: var(--cyan); border-color: var(--cyan); background: var(--bg-card-solid);
+}
+html[data-theme] .icon-btn .dot { background: var(--gold); }
+html[data-theme] .btn-ghost-sm,
+html[data-theme] .topbar-chip {
+  border-radius: 999px;
+  background: var(--bg-card-solid) !important;
+  border: 1px solid var(--border) !important;
+  color: var(--text-muted) !important;
+}
+html[data-theme] .btn-ghost-sm:hover { color: var(--cyan) !important; border-color: var(--cyan) !important; }
+
+/* ---------- 5. Judul halaman ---------- */
+html[data-theme] .page-header h1,
+html[data-theme] .dash-hero h1 {
+  font-weight: 800; letter-spacing: -.03em; color: var(--text);
+}
+html[data-theme] .page-header h1::after {
+  content: ''; display: block; width: 44px; height: 3px; margin-top: .55rem;
+  border-radius: 3px; background: var(--gold-grad);
+}
+html[data-theme] .page-header p { color: var(--text-muted); }
+html[data-theme] .page-header .date-chip {
+  background: rgba(59,139,255,.12); border: 1px solid rgba(59,139,255,.25); color: var(--cyan);
+  border-radius: 999px; font-weight: 600;
+}
+
+/* ---------- 6. Tombol ---------- */
+html[data-theme] .btn { border-radius: 999px; font-weight: 600; position: relative; }
+html[data-theme] .btn-sm { border-radius: 999px; }
+html[data-theme] .btn-primary {
+  background: var(--gold-grad);
+  color: #1c1300;
+  border: none;
+  box-shadow: 0 4px 14px rgba(245,185,66,.25);
+  position: relative; overflow: hidden;
+}
+html[data-theme] .btn-primary::after {
+  content: ''; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,.28) 50%, transparent 60%);
+  background-size: 200% 100%; animation: lt-shimmer 2.8s infinite;
+}
+html[data-theme] .btn-primary:hover {
+  transform: translateY(-2px); filter: none;
+  box-shadow: 0 10px 28px rgba(245,185,66,.42);
+}
+html[data-theme] .btn-primary:disabled { opacity: .55; transform: none; box-shadow: none; }
+@keyframes lt-shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+
+html[data-theme] .btn-outline,
+html[data-theme] .btn-ghost {
+  background: transparent; color: var(--text); border: 1px solid var(--border);
+}
+html[data-theme] .btn-outline:hover,
+html[data-theme] .btn-ghost:hover {
+  border-color: var(--cyan); color: var(--cyan); background: transparent;
+}
+html[data-theme] .btn-icon { border-radius: 50%; }
+html[data-theme] .btn-icon:hover { color: var(--cyan); border-color: var(--cyan); background: var(--bg-hover); }
+html[data-theme] .btn-copy { border-radius: 999px; }
+
+/* ---------- 7. Kartu / panel ---------- */
+html[data-theme] .panel,
+html[data-theme] .stat-card,
+html[data-theme] .stat-box,
+html[data-theme] .chart-card,
+html[data-theme] .perf-card,
+html[data-theme] .acc-card,
+html[data-theme] .net-node,
+html[data-theme] .form-card {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+}
+html[data-theme] .panel:hover,
+html[data-theme] .stat-card:hover,
+html[data-theme] .perf-card:hover,
+html[data-theme] .acc-card:hover {
+  border-color: rgba(59,139,255,.38);
+}
+html[data-theme] .stat-card:hover,
+html[data-theme] .perf-card:hover { transform: translateY(-3px); }
+html[data-theme] .panel-head {
+  border-bottom: 1px solid var(--border);
+}
+html[data-theme] .panel-head h2,
+html[data-theme] .chart-card h3 { font-weight: 700; letter-spacing: -.01em; }
+html[data-theme] .panel-head h2 .ico { color: var(--cyan); }
+html[data-theme] .stat-card .label,
+html[data-theme] .stat-box .label {
+  color: var(--text-dim); font-weight: 700; letter-spacing: .06em;
+}
+html[data-theme] .stat-card .value,
+html[data-theme] .stat-box .value { font-weight: 800; letter-spacing: -.02em; }
+html[data-theme] .stat-card .value.warn { color: var(--gold); }
+html[data-theme] .stat-icon {
+  border-radius: 12px;
+  background: color-mix(in srgb, var(--accent, var(--cyan)) 14%, transparent);
+  color: var(--accent, var(--cyan));
+}
+html[data-theme] .stat-box .bar { background: linear-gradient(90deg, var(--cyan), #8cb8ff); }
+
+/* kartu akun berwarna per paket (konsisten dengan landing: biru / emas / ungu) */
+html[data-theme] .perf-card .tag,
+html[data-theme] .acc-card .pkg { color: var(--cyan); }
+html[data-theme] .perf-card .tag.gold { color: var(--gold); }
+html[data-theme] .perf-card .tag.pro { color: var(--purple); }
+
+/* hero dashboard member */
+html[data-theme] .dashboard-hero {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background:
+    radial-gradient(ellipse 70% 90% at 100% 0%, rgba(59,139,255,.22), transparent 60%),
+    linear-gradient(135deg, #0b1a38 0%, #09132a 100%);
+}
+[data-theme=light] .dashboard-hero {
+  background:
+    radial-gradient(ellipse 70% 90% at 100% 0%, rgba(29,95,224,.12), transparent 60%),
+    linear-gradient(135deg, #ffffff 0%, #eef3fd 100%);
+}
+html[data-theme] .dashboard-hero-kicker { color: var(--gold); }
+html[data-theme] .dashboard-hero h2 span {
+  background: linear-gradient(135deg, var(--cyan), #8cb8ff);
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* ---------- 8. Tabel ---------- */
+html[data-theme] table th {
+  color: var(--text-dim); font-size: .68rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: .07em;
+  background: var(--bg-subtle);
+  border-bottom: 1px solid var(--border);
+}
+html[data-theme] table td { border-bottom: 1px solid var(--border); }
+html[data-theme] tr:hover td { background: rgba(59,139,255,.05); }
+
+/* ---------- 9. Badge ---------- */
+html[data-theme] .badge { border-radius: 999px; font-weight: 700; }
+html[data-theme] .badge.info,
+html[data-theme] .badge.pkg-basic {
+  background: rgba(59,139,255,.13); color: var(--cyan);
+  border: 1px solid rgba(59,139,255,.25);
+}
+html[data-theme] .badge.pkg-gold {
+  background: rgba(245,185,66,.14); color: var(--gold);
+  border: 1px solid rgba(245,185,66,.28);
+}
+html[data-theme] .badge.pkg-pro,
+html[data-theme] .badge.purple {
+  background: rgba(167,139,250,.14); color: var(--purple);
+  border: 1px solid rgba(167,139,250,.28);
+}
+
+/* ---------- 10. Form ---------- */
+html[data-theme] input:not([type=checkbox]):not([type=radio]):not([type=range]),
+html[data-theme] select,
+html[data-theme] textarea {
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-family: inherit;
+}
+html[data-theme] input:not([type=checkbox]):not([type=radio]):hover,
+html[data-theme] select:hover,
+html[data-theme] textarea:hover { border-color: rgba(59,139,255,.35); }
+html[data-theme] input:not([type=checkbox]):not([type=radio]):focus,
+html[data-theme] select:focus,
+html[data-theme] textarea:focus {
+  outline: none;
+  border-color: var(--cyan);
+  box-shadow: 0 0 0 3px var(--glow);
+  background: rgba(59,139,255,.04);
+}
+html[data-theme] input[type=checkbox],
+html[data-theme] input[type=radio],
+html[data-theme] input[type=range] { accent-color: var(--cyan); }
+html[data-theme] .form-group label { color: var(--text-muted); font-weight: 600; }
+html[data-theme] .form-group label .req { color: var(--gold); }
+
+/* ---------- 11. Modal, toast, notice ---------- */
+html[data-theme] .modal,
+html[data-theme] .modal-box,
+html[data-theme] .modal-card,
+html[data-theme] .dialog {
+  background: var(--bg-card-solid);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+html[data-theme] .toast {
+  background: var(--bg-card-solid); border: 1px solid var(--border-strong);
+  border-radius: 14px; box-shadow: var(--shadow);
+}
+html[data-theme] .demo-notice,
+html[data-theme] .disclaimer-box {
+  background: rgba(245,185,66,.07);
+  border: 0; border-left: 3px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  color: var(--text-muted);
+}
+html[data-theme] .demo-notice strong,
+html[data-theme] .disclaimer-box strong { color: var(--gold); }
+
+/* ---------- 12. Quick actions & referral ---------- */
+html[data-theme] .quick-actions a {
+  background: var(--bg-card-solid); border: 1px solid var(--border); border-radius: 14px;
+}
+html[data-theme] .quick-actions a:hover {
+  border-color: var(--cyan); color: var(--cyan); background: var(--bg-hover);
+}
+html[data-theme] .ref-field .rf-value.code { color: var(--gold); }
+html[data-theme] .net-node.root {
+  border-color: rgba(245,185,66,.5);
+  box-shadow: 0 0 0 1px rgba(245,185,66,.12), var(--shadow-sm);
+}
+
+/* ---------- 13. Halaman login/registrasi member (app.css auth) ---------- */
+html[data-theme] .auth-brand {
+  background:
+    radial-gradient(ellipse 90% 60% at 20% 10%, rgba(59,139,255,.22), transparent 55%),
+    radial-gradient(ellipse 70% 50% at 80% 90%, rgba(245,185,66,.08), transparent 50%),
+    linear-gradient(165deg, #040a18 0%, #09132a 50%, #050a16 100%);
+}
+html[data-theme] .auth-feature .ico {
+  background: rgba(59,139,255,.12); border: 1px solid rgba(59,139,255,.22); color: var(--cyan);
+}
+
+/* ---------- 14. Mobile ---------- */
+@media (max-width: 900px) {
+  html[data-theme] .sidebar { box-shadow: 0 0 60px rgba(0,0,0,.5); }
+  html[data-theme] .page-header h1::after { width: 36px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-theme] .btn-primary::after { animation: none; }
+  html[data-theme] .stat-card:hover,
+  html[data-theme] .perf-card:hover { transform: none; }
+}
+
+/* ---------- 15. Chip user member (sidebar) ---------- */
+html[data-theme] .user-chip {
+  display: flex; align-items: center; gap: .7rem; padding: .55rem; min-width: 0;
+}
+html[data-theme] .user-chip .avatar {
+  width: 36px; height: 36px; flex-shrink: 0; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: .75rem; color: #1c1300;
+  background: var(--gold-grad);
+  box-shadow: 0 0 0 2px rgba(245,185,66,.35);
+}
+html[data-theme] .user-chip > div:last-child { min-width: 0; }
+html[data-theme] .user-chip b {
+  display: block; font-size: .8rem; font-weight: 600; line-height: 1.25;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+html[data-theme] .user-chip span {
+  display: block; font-size: .625rem; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: .08em; font-weight: 600;
+}

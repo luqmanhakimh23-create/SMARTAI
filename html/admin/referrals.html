@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Referrals — Smart AI Admin</title>
+  <meta name="theme-color" content="#070b14">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/admin.css">
+  <script src="../../js/theme-init.js"></script>
+  <script src="../../js/guard.js"></script>
+<link rel="stylesheet" href="../../css/landing-theme.css?v=1">
+</head>
+<body>
+  <div class="app-shell">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="../../img/logo-round.png" alt="" class="brand-logo" width="38" height="38">
+        <div><strong>SMART<span>AI</span></strong><small>Admin Panel</small></div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Overview</div>
+        <a class="nav-item" href="dashboard.html"><i data-icon="layout-dashboard"></i>Dashboard</a>
+        <a class="nav-item" href="activity.html"><i data-icon="clipboard-list"></i>Activity Log</a>
+        <div class="nav-section">Manajemen</div>
+        <a class="nav-item" href="members.html"><i data-icon="users"></i>Members<span class="nav-badge" id="nav-pending" hidden></span></a>
+        <a class="nav-item" href="accounts.html"><i data-icon="trending-up"></i>Trading Accounts</a>
+        <a class="nav-item" href="commissions.html"><i data-icon="wallet"></i>Commissions</a>
+        <a class="nav-item active" href="referrals.html"><i data-icon="share"></i>Referrals</a>
+        <a class="nav-item" href="testimonials.html"><i data-icon="message-square"></i>Ulasan</a>
+        <div class="nav-section">Sistem</div>
+        <a class="nav-item" href="settings.html"><i data-icon="sliders"></i>Settings</a>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="admin-chip">
+          <img class="av av-logo" src="../../img/logo-admin.png" alt="Admin" width="36" height="36">
+          <div><b data-admin-name>Admin</b><span data-admin-role>admin</span></div>
+        </div>
+        <button type="button" class="nav-item" data-logout><i data-icon="log-out"></i>Logout</button>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" id="backdrop"></div>
+
+    <div class="main-wrap">
+      <!-- Topbar -->
+      <header class="topbar">
+        <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-label="Menu"><i data-icon="menu"></i></button>
+        <div class="topbar-title">Referrals</div>
+        <div class="topbar-actions">
+          <button type="button" class="icon-btn" id="notif-btn" title="Notifikasi" aria-label="Notifikasi">
+            <i data-icon="bell"></i><span class="dot" id="notif-dot" hidden></span>
+          </button>
+          <button type="button" class="icon-btn" id="theme-btn" aria-label="Ganti tema"></button>
+          <a class="btn-ghost-sm" href="../index.html" target="_blank" rel="noopener"><i data-icon="external-link"></i><span>Landing</span></a>
+        </div>
+      </header>
+
+      <!-- Konten halaman -->
+      <main class="page">
+        <div class="page-header">
+          <div><h1>Referrals</h1><p>Kode referral member dan performa undangan.</p></div>
+        </div>
+        
+        <section class="stats-grid">
+          <article class="stat-card" style="--accent:var(--cyan)">
+            <div class="stat-icon"><i data-icon="share"></i></div>
+            <div class="stat-info"><div class="label">Kode Referral</div><div class="value" id="st-codes">0</div></div>
+          </article>
+          <article class="stat-card" style="--accent:var(--violet)">
+            <div class="stat-icon"><i data-icon="users"></i></div>
+            <div class="stat-info"><div class="label">Total Invited</div><div class="value" id="st-invited">0</div></div>
+          </article>
+          <article class="stat-card" style="--accent:var(--green)">
+            <div class="stat-icon"><i data-icon="user-check"></i></div>
+            <div class="stat-info"><div class="label">Active</div><div class="value up" id="st-active">0</div></div>
+          </article>
+          <article class="stat-card" style="--accent:var(--amber)">
+            <div class="stat-icon"><i data-icon="wallet"></i></div>
+            <div class="stat-info"><div class="label">Total Komisi</div><div class="value" id="st-comm">$0</div></div>
+          </article>
+        </section>
+        <section class="card table-card">
+          <div class="card-head"><h2>Daftar Referral</h2></div>
+          <div class="table-wrap">
+            <table>
+              <thead><tr><th>Kode</th><th>Owner</th><th>Invited</th><th>Active</th><th>Komisi</th><th></th></tr></thead>
+              <tbody id="tbody"></tbody>
+            </table>
+          </div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <!-- Template modal (dipakai oleh js/pages/members.js) -->
+  <template id="tpl-detail">
+    <div class="modal-head"><h3>Detail Member</h3><button type="button" class="btn-icon" data-close aria-label="Tutup"><i data-icon="x"></i></button></div>
+    <div class="modal-body"><dl class="detail-list">
+        <div class="detail-item"><i data-icon="user"></i><div><dt>Nama</dt><dd data-f="nama"></dd></div></div>
+        <div class="detail-item"><i data-icon="mail"></i><div><dt>Email</dt><dd data-f="email"></dd></div></div>
+        <div class="detail-item"><i data-icon="phone"></i><div><dt>No. HP</dt><dd data-f="hp"></dd></div></div>
+        <div class="detail-item"><i data-icon="package"></i><div><dt>Paket</dt><dd data-f="paket"></dd></div></div>
+        <div class="detail-item"><i data-icon="shield"></i><div><dt>Status</dt><dd data-f="status"></dd></div></div>
+        <div class="detail-item"><i data-icon="calendar"></i><div><dt>Bergabung</dt><dd data-f="join"></dd></div></div>
+        <div class="detail-item"><i data-icon="layers"></i><div><dt>Equity</dt><dd data-f="equity"></dd></div></div>
+    </dl></div>
+    <div class="modal-foot"><button type="button" class="btn btn-outline" data-close>Tutup</button></div>
+  </template>
+  <template id="tpl-add">
+    <div class="modal-head"><h3>Tambah Member</h3><button type="button" class="btn-icon" data-close aria-label="Tutup"><i data-icon="x"></i></button></div>
+    <div class="modal-body">
+      <div class="form-group"><label for="f-nama">Nama lengkap</label><input id="f-nama" placeholder="Nama"></div>
+      <div class="form-group"><label for="f-email">Email</label><input id="f-email" type="email" placeholder="nama@email.com"></div>
+      <div class="form-group"><label for="f-hp">No. HP</label><input id="f-hp" placeholder="08xxxxxxxxxx"></div>
+      <div class="form-group"><label for="f-paket-add">Paket</label><select id="f-paket-add"><option>Smart Basic</option><option>Smart Gold</option><option>Smart Pro</option></select></div>
+      <div class="form-group"><label for="f-status-add">Status awal</label><select id="f-status-add"><option>Pending</option><option>Active</option></select></div>
+    </div>
+    <div class="modal-foot">
+      <button type="button" class="btn btn-outline" data-close>Batal</button>
+      <button type="button" class="btn btn-primary" id="m-save"><i data-icon="check"></i>Simpan</button>
+    </div>
+  </template>
+  <div class="toast-wrap" id="toast-wrap"></div>
+
+  <script src="../../js/icons.js"></script>
+  <script src="../../js/auth-admin.js"></script>
+  <script src="../../js/admin.js"></script>
+  <script src="../../js/pages/referrals.js"></script>
+</body>
+</html>

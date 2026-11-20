@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ulasan & Rating — Smart AI Admin</title>
+  <meta name="theme-color" content="#070b14">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/admin.css">
+  <script src="../../js/theme-init.js"></script>
+  <script src="../../js/guard.js"></script>
+<link rel="stylesheet" href="../../css/pages/admin-testimonials.css">
+<link rel="stylesheet" href="../../css/landing-theme.css?v=1">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <img src="../../img/logo-round.png" alt="" class="brand-logo" width="38" height="38">
+        <div><strong>SMART<span>AI</span></strong><small>Admin Panel</small></div>
+      </div>
+      <nav class="sidebar-nav">
+        <div class="nav-section">Overview</div>
+        <a class="nav-item" href="dashboard.html"><i data-icon="layout-dashboard"></i>Dashboard</a>
+        <a class="nav-item" href="activity.html"><i data-icon="clipboard-list"></i>Activity Log</a>
+        <div class="nav-section">Manajemen</div>
+        <a class="nav-item" href="members.html"><i data-icon="users"></i>Members<span class="nav-badge" id="nav-pending" hidden></span></a>
+        <a class="nav-item" href="accounts.html"><i data-icon="trending-up"></i>Trading Accounts</a>
+        <a class="nav-item" href="commissions.html"><i data-icon="wallet"></i>Commissions</a>
+        <a class="nav-item" href="referrals.html"><i data-icon="share"></i>Referrals</a>
+        <a class="nav-item active" href="testimonials.html"><i data-icon="message-square"></i>Ulasan</a>
+        <div class="nav-section">Sistem</div>
+        <a class="nav-item" href="settings.html"><i data-icon="sliders"></i>Settings</a>
+      </nav>
+      <div class="sidebar-foot">
+        <div class="admin-chip">
+          <img class="av av-logo" src="../../img/logo-admin.png" alt="Admin" width="36" height="36">
+          <div><b data-admin-name>Admin</b><span data-admin-role>admin</span></div>
+        </div>
+        <button type="button" class="nav-item" data-logout><i data-icon="log-out"></i>Logout</button>
+      </div>
+    </aside>
+    <div class="sidebar-backdrop" id="backdrop"></div>
+    <div class="main-wrap">
+      <header class="topbar">
+        <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-label="Menu">☰</button>
+        <div class="topbar-title">Ulasan</div>
+        <div class="topbar-actions">
+          <a class="btn-ghost-sm" href="../index.html" target="_blank" rel="noopener">Landing</a>
+        </div>
+      </header>
+      <main class="page-content" style="padding:1.5rem;">
+        <div class="page-head">
+          <div>
+            <h1>Ulasan & Rating</h1>
+            <p>Saring ulasan dari halaman Testimoni dan hapus yang tidak pantas. · Sumber data: Lokal (demo)</p>
+          </div>
+          <button type="button" class="btn-reload" id="btn-reload">↻ Muat ulang</button>
+        </div>
+        <div class="stat-grid">
+          <div class="stat-card"><div class="stat-icon blue">💬</div><div><div class="label">Total Ulasan</div><div class="value" id="stat-total">0</div></div></div>
+          <div class="stat-card"><div class="stat-icon gold">★</div><div><div class="label">Rata-rata</div><div class="value" id="stat-avg">—</div></div></div>
+          <div class="stat-card"><div class="stat-icon red">!</div><div><div class="label">Rating 1–2</div><div class="value" id="stat-low">0</div></div></div>
+          <div class="stat-card"><div class="stat-icon amber">⚑</div><div><div class="label">Ditandai kata kasar</div><div class="value" id="stat-flag">0</div></div></div>
+        </div>
+        <div class="toolbar">
+          <input type="search" id="q" placeholder="Cari nama / isi ulasan…">
+          <select id="filter-rating">
+            <option value="">Semua rating</option>
+            <option value="5">5 bintang</option>
+            <option value="4">4 bintang</option>
+            <option value="3">3 bintang</option>
+            <option value="2">2 bintang</option>
+            <option value="1">1 bintang</option>
+          </select>
+          <select id="filter-status">
+            <option value="">Semua status</option>
+            <option value="pending">Pending</option>
+            <option value="approved">Approved</option>
+            <option value="rejected">Rejected</option>
+          </select>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><span>📋 Daftar ulasan</span><span class="count" id="list-count">0 ulasan</span></div>
+          <div id="table-wrap">
+            <table class="review-table">
+              <thead><tr><th>Member</th><th>Rating</th><th>Ulasan</th><th>Status</th><th>Tanggal</th><th>Aksi</th></tr></thead>
+              <tbody id="tbody"></tbody>
+            </table>
+            <div class="empty" id="empty" hidden><div style="font-size:2rem;opacity:.4;margin-bottom:.5rem;">📭</div>Tidak ada ulasan ditemukan</div>
+          </div>
+        </div>
+      </main>
+    </div>
+  </div>
+  <script src="../../js/icons.js"></script>
+  <script src="../../js/auth-admin.js"></script>
+  <script src="../../js/admin.js"></script>
+<script src="../../js/pages/admin-testimonials.js"></script>
+</body>
+</html>
